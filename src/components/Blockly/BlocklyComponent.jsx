@@ -47,9 +47,18 @@
              },
          );
  
-         if (initialXml) {
-             Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(initialXml), this.primaryWorkspace);
-         }
+        //  if (initialXml) {
+        //      Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(initialXml), this.primaryWorkspace);
+        //  }
+
+        // Listener so that when the workspace is changed we make a call up the chain to assign the blocks to the currently active tab
+        this.primaryWorkspace.addChangeListener((event) => {
+            
+            if (event instanceof Blockly.Events.Move) {
+                this.props.handleWorkspaceChanged();
+            }
+
+        });
      }
  
      get workspace() {

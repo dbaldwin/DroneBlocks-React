@@ -15,7 +15,10 @@ class BlocklyCanvas extends Component {
         var code = BlocklyJS.workspaceToCode(
             this.simpleWorkspace.current.workspace
         );
-        console.log(code);
+        
+        // Trickle this up to app js
+        // TODO: manage this better in the future
+        this.props.handleWorkspaceChanged(code);
     }
 
     render() {
@@ -27,7 +30,7 @@ class BlocklyCanvas extends Component {
                         scrollbars: true,
                         drag: true,
                         wheel: true
-                    }}>
+                    }} handleWorkspaceChanged={this.generateCode}>
                     <Category name="Navigation" colour="0">
                         <Block type="logic_operation" />
                     </Category>

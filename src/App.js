@@ -9,29 +9,35 @@ class App extends Component {
     console.log(tab);
   }
 
+  printCode(code) {
+    console.log("From app.js " + code);
+  }
+
   render() {
     return (
       <div>
         <h1>Tabs Demo</h1>
-      <Tabs onTabChanged={this.printActiveTab}> 
-        <div label="Mission #1"> 
-          See ya later, <em>Alligator</em>! 
-        </div> 
-        <div label="Mission #2"> 
-          After 'while, <em>Crocodile</em>! 
-        </div> 
-        <div label="Mission #3"> 
-          Nothing to see here, this tab is <em>extinct</em>! 
-        </div>
-        <div label="Mission #4"> 
-          Nothing to see here, this tab is <em>extinct</em>! 
-        </div> 
-        <div label="Mission #5"> 
-          Nothing to see here, this tab is <em>extinct</em>! 
-        </div> 
-      </Tabs>
+        
+        <Tabs onTabChanged={this.printActiveTab}> 
+          <div label="Mission #1"> 
+            See ya later, <em>Alligator</em>! 
+          </div> 
+          <div label="Mission #2"> 
+            After 'while, <em>Crocodile</em>! 
+          </div> 
+          <div label="Mission #3"> 
+            Nothing to see here, this tab is <em>extinct</em>! 
+          </div>
+          <div label="Mission #4"> 
+            Nothing to see here, this tab is <em>extinct</em>! 
+          </div> 
+          <div label="Mission #5"> 
+            Nothing to see here, this tab is <em>extinct</em>! 
+          </div> 
+        </Tabs>
 
-        <BlocklyCanvas />
+        
+        <BlocklyCanvas handleWorkspaceChanged={this.printCode} />
         
       </div>
     );
