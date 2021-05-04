@@ -17,6 +17,8 @@ class Tabs extends Component {
 
   onClickTabItem = (tab) => {
     this.setState({ activeTab: tab });
+
+    this.props.onTabChanged(tab);
   }
 
   render() {
